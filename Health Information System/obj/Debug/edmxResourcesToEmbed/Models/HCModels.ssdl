@@ -1,0 +1,52 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="HealthDTModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2008" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <!--Errors Found During Generation:
+warning 6002: The table/view 'F:\ASP.NET\E-HEALTHCAREMVC\E-HEALTHCAREMVC\APP_DATA\HEALTHDT.MDF.dbo.TblContactt' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+  <EntityType Name="TblContactt">
+    <Key>
+      <PropertyRef Name="name" />
+      <PropertyRef Name="phone" />
+      <PropertyRef Name="subject" />
+      <PropertyRef Name="message" />
+    </Key>
+    <Property Name="name" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="phone" Type="numeric" Precision="18" Scale="0" Nullable="false" />
+    <Property Name="subject" Type="nvarchar" MaxLength="30" Nullable="false" />
+    <Property Name="message" Type="nvarchar" MaxLength="110" Nullable="false" />
+  </EntityType>
+  <!--Errors Found During Generation:
+warning 6002: The table/view 'F:\ASP.NET\E-HEALTHCAREMVC\E-HEALTHCAREMVC\APP_DATA\HEALTHDT.MDF.dbo.TblUser' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+  <EntityType Name="TblUser">
+    <Key>
+      <PropertyRef Name="pName" />
+      <PropertyRef Name="userName" />
+      <PropertyRef Name="phone" />
+      <PropertyRef Name="password" />
+      <PropertyRef Name="postalCode" />
+    </Key>
+    <Property Name="pName" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="userName" Type="nvarchar" MaxLength="20" Nullable="false" />
+    <Property Name="phone" Type="numeric" Precision="18" Scale="0" Nullable="false" />
+    <Property Name="password" Type="nvarchar" MaxLength="20" Nullable="false" />
+    <Property Name="postalCode" Type="nvarchar" MaxLength="10" Nullable="false" />
+  </EntityType>
+  <EntityContainer Name="HealthDTModelStoreContainer">
+    <EntitySet Name="TblContactt" EntityType="Self.TblContactt" store:Type="Tables" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+[TblContactt].[name] AS [name], 
+[TblContactt].[phone] AS [phone], 
+[TblContactt].[subject] AS [subject], 
+[TblContactt].[message] AS [message]
+FROM [dbo].[TblContactt] AS [TblContactt]</DefiningQuery>
+    </EntitySet>
+    <EntitySet Name="TblUser" EntityType="Self.TblUser" store:Type="Tables" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+[TblUser].[pName] AS [pName], 
+[TblUser].[userName] AS [userName], 
+[TblUser].[phone] AS [phone], 
+[TblUser].[password] AS [password], 
+[TblUser].[postalCode] AS [postalCode]
+FROM [dbo].[TblUser] AS [TblUser]</DefiningQuery>
+    </EntitySet>
+  </EntityContainer>
+</Schema>
